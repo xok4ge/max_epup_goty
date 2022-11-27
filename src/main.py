@@ -135,9 +135,12 @@ class MainW(QMainWindow, design.Ui_MainWindow):
             for n in c:
                 book = f'qwerty\\{n}'
                 if self.imgs:
+                    if not os.path.exists(f'qwerty\{n}\OPS\images'):
+                        os.mkdir(f'qwerty\{n}\OPS')
+                        os.mkdir(f'qwerty\{n}\OPS\images')
                     k = os.listdir(str(self.imgs))
                     for el in k:
-                        new = shutil.copy(f'{str(self.imgs)}\{el}', f'qwerty\{n}')
+                        new = shutil.copy(f'{str(self.imgs)}\{el}', f'qwerty\{n}\OPS\images')
                         print(new)
                 items, files = [], []
                 for dirpath, _, filenames in os.walk(book):
