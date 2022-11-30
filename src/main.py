@@ -134,18 +134,35 @@ class MainW(QMainWindow, design.Ui_MainWindow):
             c = os.listdir('qwerty')
             for n in c:
                 book = f'qwerty\\{n}'
-                if self.imgs:
-                    if not os.path.exists(f'qwerty\{n}\OPS\images'):
-                        os.mkdir(f'qwerty\{n}\OPS')
-                        os.mkdir(f'qwerty\{n}\OPS\images')
-                    k = os.listdir(str(self.imgs))
-                    for el in k:
-                        new = shutil.copy(f'{str(self.imgs)}\{el}', f'qwerty\{n}\OPS\images')
-                        print(new)
+                for_img, metainf = None, None
                 items, files = [], []
                 for dirpath, _, filenames in os.walk(book):
                     for f in filenames:
                         items.append(os.path.abspath(os.path.join(dirpath, f)))
+                        if f == 'content.opf':
+                            for_img = os.path.abspath(dirpath)
+                            metainf = os.path.abspath(os.path.join(dirpath, f))
+                if self.imgs:
+                    k = os.listdir(str(self.imgs))
+                    with open(metainf, mode='r', encoding='utf-8') as f:
+                        a = f.read()
+                        soup = bs4.BeautifulSoup(a, 'html.parser')
+                        manifest = soup.find('manifest')
+                        new_otf = [str(qw) for qw in manifest.contents]
+                        for i in range(3):
+                            iline = f'<item id="1000{i}" href="{k[i]}" media-type="image/jpeg"/>'
+                            new_otf.append(iline)
+                        new_otf.append("</manifest>")
+                        new_otf.insert(0, '<manifest>')
+                        evo = bs4.BeautifulSoup(str('\n'.join(new_otf)), 'html.parser')
+                        manifest.replace_with(evo)
+                    with open(metainf, mode='w', encoding='utf-8') as f:
+                        f.write(str(soup))
+
+
+                    for el in k:
+                        new = shutil.copy(f'{str(self.imgs)}\{el}', for_img)
+                        print(new)
                 for elem in items:
                     name = os.path.splitext(elem)[1]
                     if name == '.html' or name == '.xhtml':
