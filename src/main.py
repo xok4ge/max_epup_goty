@@ -79,12 +79,11 @@ class MainW(QMainWindow, design.Ui_MainWindow):
                     main_links2 = list(filter(lambda x: x is not None, main_links))
                     if sdvig < len(main_links2) and sdvig - 1 >= 0:
                         for sd in range(sdvig):
-                            sdv = main_links2[sd]
-                            main_links2.remove(main_links2[sd])
+                            sdv = main_links2[0]
+                            main_links2.remove(main_links2[0])
                             main_links2.append(sdv)
                     else:
                         sdvig = 0
-                    sdvig += 1
                     attrs, span, content, f_cont = {}, False, [], []
                     for tg in soup.body.contents:
                         content.append(str(tg))
@@ -104,6 +103,7 @@ class MainW(QMainWindow, design.Ui_MainWindow):
 
                     link = first_tag(content)
                     if link:
+                        sdvig += 1
                         a = index(link, content)
                         if a:
                             last = (len(content)) // herz
@@ -160,7 +160,7 @@ class MainW(QMainWindow, design.Ui_MainWindow):
                         soup = bs4.BeautifulSoup(a, 'html.parser')
                         manifest = soup.find('manifest')
                         new_otf = [str(qw) for qw in manifest.contents]
-                        for i in range(5):
+                        for i in range(6):
                             iline = f'<item id="1000{i}" href="{k[i]}" media-type="image/jpeg"/>'
                             new_otf.append(iline)
                         new_otf.append("</manifest>")
