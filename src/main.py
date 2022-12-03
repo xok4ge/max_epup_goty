@@ -160,7 +160,7 @@ class MainW(QMainWindow, design.Ui_MainWindow):
                         soup = bs4.BeautifulSoup(a, 'html.parser')
                         manifest = soup.find('manifest')
                         new_otf = [str(qw) for qw in manifest.contents]
-                        for i in range(3):
+                        for i in range(5):
                             iline = f'<item id="1000{i}" href="{k[i]}" media-type="image/jpeg"/>'
                             new_otf.append(iline)
                         new_otf.append("</manifest>")
