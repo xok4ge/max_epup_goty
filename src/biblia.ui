@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>297</width>
-    <height>357</height>
+    <width>302</width>
+    <height>446</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -45,13 +45,6 @@
    <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_6">
-        <property name="text">
-         <string>Изображения</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
@@ -72,6 +65,9 @@
         </property>
        </widget>
       </item>
+      <item row="6" column="0" colspan="2">
+       <widget class="QLineEdit" name="link_2"/>
+      </item>
       <item row="1" column="1">
        <widget class="QPushButton" name="choose_file">
         <property name="text">
@@ -79,61 +75,51 @@
         </property>
        </widget>
       </item>
-      <item row="7" column="0" colspan="2">
-       <widget class="QLineEdit" name="link_2"/>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="label_4">
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>Ссылка в html формате</string>
+         <string>Изображения</string>
         </property>
        </widget>
       </item>
-      <item row="5" column="0" colspan="2">
-       <widget class="QLineEdit" name="link_1"/>
-      </item>
-      <item row="12" column="1">
+      <item row="13" column="1">
        <widget class="QPushButton" name="start">
         <property name="text">
          <string>Начать</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Ссылка в html формате</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="0">
+      <item row="11" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
          <string>Количество ссылок на странице</string>
         </property>
        </widget>
       </item>
-      <item row="9" column="0" colspan="2">
-       <widget class="QLineEdit" name="link_3"/>
+      <item row="5" column="0" colspan="2">
+       <widget class="QLineEdit" name="link_1"/>
       </item>
-      <item row="8" column="0">
-       <widget class="QLabel" name="label_5">
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Ссылка в html формате</string>
+         <string>Ссылки в html формате</string>
         </property>
        </widget>
       </item>
-      <item row="11" column="0">
-       <widget class="QSpinBox" name="herz_line">
-        <property name="minimum">
-         <number>1</number>
-        </property>
-       </widget>
+      <item row="7" column="0" colspan="2">
+       <widget class="QLineEdit" name="link_3"/>
       </item>
       <item row="3" column="0">
        <widget class="QLineEdit" name="img_line">
         <property name="enabled">
          <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="0">
+       <widget class="QSpinBox" name="herz_line">
+        <property name="minimum">
+         <number>1</number>
         </property>
        </widget>
       </item>
@@ -144,6 +130,15 @@
         </property>
        </widget>
       </item>
+      <item row="9" column="0" colspan="2">
+       <widget class="QLineEdit" name="link_5"/>
+      </item>
+      <item row="10" column="0" colspan="2">
+       <widget class="QLineEdit" name="link_6"/>
+      </item>
+      <item row="8" column="0" colspan="2">
+       <widget class="QLineEdit" name="link_4"/>
+      </item>
      </layout>
     </item>
    </layout>
@@ -153,7 +148,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>297</width>
+     <width>302</width>
      <height>21</height>
     </rect>
    </property>
